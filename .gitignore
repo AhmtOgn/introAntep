@@ -1,0 +1,18 @@
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Geçici dosyalar
+*.log
+*.tmp
+
+# Visual Studio Code klasörü
+.vscode/
+.idea/
+
+# Node.js klasörü
+node_modules/
+
+# Derlenen dosyalar
+dist/
+build/
