@@ -2,17 +2,22 @@
 .DS_Store
 Thumbs.db
 
-# Geçici dosyalar
-*.log
-*.tmp
-
-# Visual Studio Code klasörü
+# Editör / IDE klasörleri
 .vscode/
 .idea/
 
-# Node.js klasörü
-node_modules/
-
-# Derlenen dosyalar
+# Derleme klasörleri
 dist/
 build/
+.cache/
+temp/
+
+# Log dosyaları
+*.log
+
+# Ortam değişkenleri
+.env
+*.env
+
+# Node.js varsa
+node_modules/

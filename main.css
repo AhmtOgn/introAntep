@@ -1,0 +1,95 @@
+body {
+  background-image: url('Gantepkale.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 112vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.giris-kutu {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 0 10px black;
+  }
+
+  .amblem {
+    position: absolute;
+    top: 50px;
+    left: 2px;
+    width: 100%;           
+    height: auto;
+    margin-bottom: 10px;   
+  }
+
+  .amblem2 {
+  position: absolute;
+  top: 50px;
+  right:100px;
+  width: 100px;         
+  height: auto;
+  z-index: 10; 
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 2));
+
+  }
+
+  .giris-yazisi {
+    position: absolute;
+    top: 190px;
+    left: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 100px;
+  }
+  
+  .button-container {
+    position: absolute;
+    top:250px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: left;
+  }
+  
+  .button-container button {
+    padding: 10px 10px;
+    font: size 80px;
+    font-family:fantasy;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    background-color: #f2f2f2c3;
+    color: rgb(243, 183, 183);
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-container button:hover {
+    background-color: #ddd;
+  }
+  
+  footer {
+    position: fixed;           
+    bottom: 0;                 
+    left: 0;
+    right: 0;
+    width: 100%;               
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.7);  
+    padding: 10px 0;
+    z-index: 1000;             
+  } 
