@@ -1,31 +1,29 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
-
-
 
 .topMenu {
   height: 100px;
-  width: 100vw;
-  background-color: black;
-  /*
+  width: 100%;
+  
   background-image: url(Gantepkale.jpeg);
   background-size: cover;
   background-position: 32% 32%;
   background-repeat: no-repeat;
-  */
+  
   color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
+  box-sizing: border-box;
 }
 
-
-
-
+/*    Buttons   */
 .btn {
   font-size: 20px;
   margin-bottom: 28px;
@@ -39,7 +37,6 @@ body {
   background-color: transparent;
 }
 
-
 .btn:hover {
    background-color: #c97b00;
   transform: translateY(-4px);
@@ -50,41 +47,10 @@ body {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #a06000;
 }
-
-
-
-
-    
+/*    Buttons   */
 
 .container {
   display: flex;
-}
-
-.sidebar {
-  width: 200px;
-  background-color: #f4f4f4;
-  padding: 1rem;
-  border-right: 1px solid #ccc;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 1rem;
-}
-
-.yemek {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 1rem;
-}
-
-.hidden {
-  display: none;
-}
-
-h2 {
-  margin-top: 2rem;
-  color: darkred;
 }
 
 .content {
@@ -96,7 +62,9 @@ h2 {
 }
 
 .kategori {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .kategori h2 {
@@ -104,36 +72,98 @@ h2 {
   color: #8B0000;
   border-bottom: 2px solid #8B0000;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.yemek-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 
 .yemek {
-  display: flex;
-  flex-direction: column;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 0;
+  max-width: 280px;
+  margin: auto;
 }
 
 .yemek:hover {
-  transform: scale(1.01);
-}
-
-.yemek h3 {
-  margin: 0 0 0.5rem 0;
-  color: #333;
-}
-
-.yemek p {
-  color: #555;
-  margin: 0;
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .yemek img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.yemek h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.2rem;
+  color: #8B0000;
+}
+
+.yemek p {
+  font-size: 0.95rem;
+  color: #666;
+  padding: 0 1rem 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar h3 {
+  font-size: 1.3rem;
+  color: #8B0000;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #CD5C5C;
+  padding-bottom: 0.3rem;
+}
+
+.sidebar label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar label:hover {
+  background-color: #ffeaea;
+}
+
+.sidebar input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+
+.sidebar label.selected {
+  background-color: #fdd;
+  font-weight: bold;
 }
