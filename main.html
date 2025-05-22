@@ -4,91 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaziantep Tanıtım</title>
+  <link rel="stylesheet" href="main.css" >
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-image: url('Gantepkale.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 120vh;
-      margin: 0;
-      padding: 0;
-    }
-
-    .giris-kutu {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      padding: 30px;
-      height: 100vh;
-      box-shadow: 0 0 10px black;
-    }
-
-    .amblem {
-      width: 100%;
-      height: auto;
-      margin-bottom: 30px;
-    }
-
-    .amblem2 {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      max-width: 30%;
-      height: auto;
-      z-index: 10;
-      filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.7));
-    }
-
-    .giris-yazisi {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 40px;
-    }
-
-    .button-container .btn {
-      font-size: 20px;
-      margin-bottom: 28px;
-      padding: 7px 20px;
-      border-radius: 100px;
-      color: rgb(36, 32, 32);
-      font-weight: bold;
-      border: none;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 6px 0 #c97b00;
-    }
-
-    
-    .btn-yemekler,.btn-gezilecek,.btn-tarih {
-      background-color: rgb(216, 159, 75);
-    }
-
-    .button-container .btn:hover {
-      background-color: #c97b00;
-      transform: translateY(-4px);
-      box-shadow: 0 4px 0 #c97b00;
-    }
-
-    .button-container .btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #a06000;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 50px;
-      text-align: center;
-      color: white;
-      font-size: 16px;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px 0;
-      z-index: 1000;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -106,7 +24,7 @@
         </p>
 
         <div class="d-flex flex-column button-container">
-          <button class="btn  btn-yemekler">Yemekleri</button>
+          <button class="btn  btn-yemekler" onclick="window.location.href='yemekler.html'">Yemekleri</button>
           <button class="btn  btn-gezilecek">Gezilecek Yerleri</button>
           <button class="btn  btn-tarih">Tarihi</button>
         </div>
@@ -119,6 +37,6 @@
     <p>📍 Gaziantep, Türkiye &nbsp;&nbsp;&nbsp; 📞 ‪+90 501 012 90 05‬ &nbsp;&nbsp;&nbsp; ✉ info@gaziantepkalesi.com</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
 </body>
 </html>

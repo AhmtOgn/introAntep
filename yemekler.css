@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.topMenu {
+  height: 100px;
+  width: 100vw;
+  background-color: black;
+  /*
+  background-image: url(Gantepkale.jpeg);
+  background-size: cover;
+  background-position: 32% 32%;
+  background-repeat: no-repeat;
+  */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+
+.btn {
+  font-size: 20px;
+  margin-bottom: 28px;
+  padding: 7px 20px;
+  border-radius: 100px;
+  color: rgb(36, 32, 32);
+  font-weight: bold;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 6px 0 #c97b00;
+  background-color: transparent;
+}
+
+
+.btn:hover {
+   background-color: #c97b00;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 #c97b00;
+}
+
+.btn:active{
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #a06000;
+}
+
+
+
+
+    
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.yemek {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: darkred;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.kategori {
+  margin-top: 2rem;
+}
+
+.kategori h2 {
+  font-size: 1.8rem;
+  color: #8B0000;
+  border-bottom: 2px solid #8B0000;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.yemek {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.yemek:hover {
+  transform: scale(1.01);
+}
+
+.yemek h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.yemek p {
+  color: #555;
+  margin: 0;
+}
+
+.yemek img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Şehir Yemekleri</title>
+  <link rel="stylesheet" href="yemekler.css">
+</head>
+<body>
+
+<div>
+    <div class="topMenu">
+        <button class="btn" onclick="window.location.href='main.html'">Main Menu</button>
+        <button class="btn" href=''>Gezilecek Yerleri</button>
+        <button class="btn" href=''>Tarihi</button>
+        <img src="amblem.png" alt="" height="100px">
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>Filtrele</h3>
+            <label><input type="checkbox" value="tatli" onchange="filtrele()"> Tatlılar</label><br>
+            <label><input type="checkbox" value="ana" onchange="filtrele()"> Ana Yemekler</label><br>
+            <label><input type="checkbox" value="corba" onchange="filtrele()"> Çorbalar</label>
+        </div>
+
+        <div class="content">
+            <div class="kategori" id="corba">
+                <h2>Çorbalar</h2>
+                <div class="yemek corba">
+                    <img src="ezogelin.jpg" alt="Ezogelin Çorbası">
+                    <h3>Ezogelin Çorbası</h3>
+                    <p>Bulgur, mercimek ve baharatların uyumuyla yapılan yöresel bir çorba.</p>
+                </div>
+            </div>
+
+            <div class="kategori" id="ana">
+                <h2>Ana Yemekler</h2>
+                <div class="yemek ana">
+                    <img src="iskender.jpg" alt="İskender">
+                    <h3>İskender</h3>
+                    <p>Yoğurt, tereyağı ve etin lezzetli buluşması.</p>
+                </div>
+                <div class="yemek ana">
+                    <img src="kuru.jpg" alt="Kuru Fasulye">
+                    <h3>Kuru Fasulye</h3>
+                    <p>Yanına pilavla servis edilen klasik ve vazgeçilmez bir lezzet.</p>
+                </div>
+            </div>
+
+            <div class="kategori" id="tatli">
+                <h2>Tatlılar</h2>
+                <div class="yemek tatli">
+                    <img src="baklava.jpg" alt="Baklava">
+                    <h3>Baklava</h3>
+                    <p>İncecik yufka katları arasında bol fıstıkla hazırlanan şerbetli tatlı.</p>
+                </div>
+                <div class="yemek tatli">
+                    <img src="kazandibi.jpg" alt="Kazandibi">
+                    <h3>Kazandibi</h3>
+                    <p>Altı hafif yanık, sütlü ve hafif bir tatlı.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+
+
+  <script>
+    function filtrele() {
+      const secilenler = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.value);
+      const tumYemekler = document.querySelectorAll('.yemek');
+
+      tumYemekler.forEach(yemek => {
+        const kategori = yemek.classList[1];
+        if (secilenler.length === 0 || secilenler.includes(kategori)) {
+          yemek.classList.remove('hidden');
+        } else {
+          yemek.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</div>
+
+</body>
+</html>
