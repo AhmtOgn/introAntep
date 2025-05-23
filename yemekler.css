@@ -1,3 +1,4 @@
+/*
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@ body {
 }
 
 .topMenu {
-  height: 100px;
+  height: 150px;
   width: 100%;
   
   background-image: url(Gantepkale.jpeg);
@@ -19,26 +20,37 @@ body {
   color: white;
   padding: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
   box-sizing: border-box;
 }
 
-/*    Buttons   */
+.logo {
+  background-color:rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: 50px;
+
+}
+
+/*    Buttons   
 .btn {
   font-size: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 5px;
   padding: 7px 20px;
   border-radius: 100px;
-  color: rgb(36, 32, 32);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   border: none;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 6px 0 #c97b00;
-  background-color: transparent;
+  background-color: wheat;
 }
 
 .btn:hover {
-   background-color: #c97b00;
+  background-color: #c9994c;
   transform: translateY(-4px);
   box-shadow: 0 4px 0 #c97b00;
 }
@@ -47,7 +59,7 @@ body {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #a06000;
 }
-/*    Buttons   */
+/*    Buttons   
 
 .container {
   display: flex;
@@ -166,4 +178,285 @@ body {
 .sidebar label.selected {
   background-color: #fdd;
   font-weight: bold;
+}
+  */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.topMenu {
+  height: 120px;
+  width: 100%;
+
+  background-color: rgb(150, 60, 60);
+  background-size: cover;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+.logo {
+  height: 100px;
+  margin-right: auto;
+  margin-left: 20px;
+
+
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #8B0000;
+  transform: translateY(-2px);
+}
+
+.container {
+  display: flex;
+  background-color: #fafafa;
+}
+
+.sidebar {
+  width: 280px;
+  background: transparent;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  height: fit-content;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(139, 0, 0, 0.1);
+}
+
+.filter-section h3 {
+  font-size: 1.1rem;
+  color: #8B0000;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+  padding-bottom: 0.3rem;
+}
+
+.filter-section label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.filter-section label:hover {
+  background-color: rgba(139, 0, 0, 0.05);
+  transform: translateX(2px);
+}
+
+.filter-section input[type="checkbox"],
+.filter-section input[type="radio"] {
+  margin-right: 0.8rem;
+  transform: scale(1.2);
+  accent-color: #8B0000;
+}
+
+.search-box {
+  width: 91%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #8B0000;
+  box-shadow: 0 0 5px rgba(139, 0, 0, 0.2);
+}
+
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-input {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.clear-filters {
+  background: #8B0000;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.clear-filters:hover {
+  background: #CD5C5C;
+  transform: translateY(-1px);
+}
+
+.content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.results-info {
+  background: linear-gradient(135deg, #8B0000, #CD5C5C);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.kategori {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.kategori h2 {
+  font-size: 2rem;
+  color: #8B0000;
+  border-bottom: 3px solid #8B0000;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.yemek-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.yemek {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.yemek:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.yemek-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #8B0000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.yemek img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.yemek-info {
+  padding: 1.5rem;
+}
+
+.yemek h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #8B0000;
+}
+
+.yemek p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.yemek-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.rating {
+  color: #ffa500;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: none;
+  }
+
+  .yemek-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
