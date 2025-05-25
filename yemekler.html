@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Antep Sofrası</title>
+  <link rel="stylesheet" href="yemekler.css">
+</head>
+
+<body>
+
+  <div class="topMenu">
+    <img class="logo" src="amblem.png" alt="Gaziantep Logosu">
+    <p class="slogan">“Efsaneleri, kahramanları ve yüzyıllara uzanan lezzet mirasıyla Antep’i tanıyın.”</p>
+    <button class="btn" onclick="window.location.href='main.html'">Ana Sayfa</button>
+    <button class="btn" onclick="window.location.href='yerler.html'">Antep'te Adım Adım</button>
+    <button class="btn" onclick="window.location.href='tarihi.html'">Antep: Yaşayan Miras</button>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <!-- Arama Kutusu -->
+      <div class="filter-section">
+        <h3>🔍 Arama</h3>
+        <input type="text" class="search-box" id="searchBox" placeholder="Yemek adı ara..." onkeyup="filtrele()">
+      </div>
+
+      <!-- Kategori Filtresi -->
+      <div class="filter-section">
+        <h3>📂 Kategoriler</h3>
+        <label><input type="checkbox" value="ana" onchange="filtrele()">🍖 Ana Yemekler</label>
+        <label><input type="checkbox" value="corba" onchange="filtrele()">🍲 Çorbalar</label>
+        <label><input type="checkbox" value="tatli" onchange="filtrele()">🍰 Tatlılar</label>
+      </div>
+
+      <!-- Fiyat Aralığı -->
+      <div class="filter-section">
+        <h3>💰 Fiyat Aralığı</h3>
+        <label><input type="radio" name="fiyat" value="ekonomik" onchange="filtrele()">💚 Ekonomik (100-200₺)</label>
+        <label><input type="radio" name="fiyat" value="orta" onchange="filtrele()">💛 Orta (200-350₺)</label>
+        <label><input type="radio" name="fiyat" value="premium" onchange="filtrele()">❤️ Premium (350₺+)</label>
+      </div>
+
+      <!-- Popülerlik -->
+      <div class="filter-section">
+        <h3>⭐ Popülerlik</h3>
+        <label><input type="checkbox" value="populer" onchange="filtrele()">🔥 En Popüler</label>
+        <label><input type="checkbox" value="yeni" onchange="filtrele()">✨ Yeni Eklenen</label>
+        <label><input type="checkbox" value="klasik" onchange="filtrele()">👑 Klasik Lezzetler</label>
+      </div>
+
+      <!-- Özel Durumlar -->
+      <div class="filter-section">
+        <h3>🏷️ Özel Durumlar</h3>
+        <label><input type="checkbox" value="vegetarian" onchange="filtrele()">🌱 Vejetaryen</label>
+        <label><input type="checkbox" value="spicy" onchange="filtrele()">🌶️ Acılı</label>
+        <label><input type="checkbox" value="traditional" onchange="filtrele()">🏛️ Geleneksel</label>
+      </div>
+
+      <button class="clear-filters" onclick="temizleFiltreler()">🔄 Filtreleri Temizle</button>
+    </div>
+
+    <div class="content">
+      <div class="results-info" id="resultsInfo">
+        Toplam <span id="resultCount">28</span> yemek gösteriliyor
+      </div>
+
+      <div class="kategori" id="ana">
+        <h2>Ana Yemekler</h2>
+        <div class="yemek-grid">
+          <!-- Ana Yemekler -->
+          <div class="yemek ana orta klasik traditional" data-name="lahmacun">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Lahmacun.jpg" alt="Lahmacun">
+            <div class="yemek-info">
+              <h3>Lahmacun</h3>
+              <p>İncecik hamurun üstüne serilen baharatlı kıymayla fırınlanmış lezzet.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>40₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="patlıcan kebabı">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/PatlıcanKebabı.jpg" alt="Patlıcan Kebabı">
+            <div class="yemek-info">
+              <h3>Patlıcan Kebabı</h3>
+              <p>Patlıcanların arasına dizilmiş kıyma etiyle eşsiz bir kebab.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>85₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="soğan kebabı">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/SoğanKebabı.jpeg" alt="Soğan Kebabı">
+            <div class="yemek-info">
+              <h3>Soğan Kebabı</h3>
+              <p>Küçük soğanlarla birlikte pişen baharatlı kıyma kebabı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>90₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="kelle paça">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/KellePaça.jpg" alt="Kelle Paça">
+            <div class="yemek-info">
+              <h3>Kelle Paça</h3>
+              <p>Baş ve ayak etinden yapılan, şifa kaynağı bir çorba.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>75₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="ali nazik">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Alinazik.jpg" alt="Ali Nazik">
+            <div class="yemek-info">
+              <h3>Ali Nazik</h3>
+              <p>Közlenmiş patlıcan ve yoğurt karışımı üstüne kuşbaşı et.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>95₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="içli köfte">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/İçliKöfte.jpg" alt="İçli Köfte">
+            <div class="yemek-info">
+              <h3>İçli Köfte</h3>
+              <p>Dışı ince bulgur, içi baharatlı kıyma dolu nefis bir lezzet.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="nohut dürümü">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/NohutDürümü.jpg" alt="Nohut Dürümü">
+            <div class="yemek-info">
+              <h3>Nohut Dürümü</h3>
+              <p>Baharatlı nohutların lavaş arasında buluştuğu sokak lezzeti.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>35₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/AntepKömbe.jpg" alt="Antep Kömbe">
+            <div class="yemek-info">
+              <h3>Antep Kömbe</h3>
+              <p>Geleneksel baharatlı hamur işi, taş fırında pişirilmiş.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="beyran">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Beyran.jpeg" alt="Beyran">
+            <div class="yemek-info">
+              <h3>Beyran</h3>
+              <p>Pirinç, et ve sarımsağın kaynar et suyunda birleştiği sabah çorbası.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>70₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/EşkiliUfakKöfte.jpg" alt="Eşkili Ufak Köfte">
+            <div class="yemek-info">
+              <h3>Eşkili Ufak Köfte</h3>
+              <p>Ekşili Ufak Köfte, ince bulgur ve baharatlarla hazırlanan minik köfteleriyle, Antep'e özgü geleneksel
+                bir yemektir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Humus.jpg" alt="Humus">
+            <div class="yemek-info">
+              <h3>Humus</h3>
+              <p>Humus, haşlanmış nohutun tahin, limon suyu, sarımsak ve zeytinyağı ile püre haline getirilerek
+                hazırlanan, Ortadoğu mutfağının popüler bir mezesidir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/KilisTavası.jpg" alt="Kilis Tavası">
+            <div class="yemek-info">
+              <h3>Kilis Tavası</h3>
+              <p>Kilis Tavası, kıyma, domates, biber ve soğanla hazırlanan, tepside pişirilen Kilis'e özgü lezzetli bir
+                yemektir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/MalhıtalıKöfte.jpg" alt="Malhıtalı Köfte">
+            <div class="yemek-info">
+              <h3>Malhıtalı Köfte</h3>
+              <p>Malhıtalı Köfte, kırmızı mercimek ve ince bulgurun salça ve baharatlarla yoğrularak hazırlandığı,
+                doyurucu ve geleneksel bir Antep köftesidir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Muhammara.jpg" alt="Muhammara">
+            <div class="yemek-info">
+              <h3>Muhammara</h3>
+              <p>Muhammara, ceviz, ekmek içi, biber salçası, nar ekşisi ve baharatlarla hazırlanan, zengin ve yoğun
+                lezzetli bir mezedir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Musakka.jpg" alt="Patlıcan Musakka">
+            <div class="yemek-info">
+              <h3>Patlıcan Musakka</h3>
+              <p>Musakka, kıymalı harç ve patlıcan gibi sebzelerin kat kat dizilerek fırında beşamel sosla pişirildiği,
+                dünya mutfağında da yeri olan doyurucu bir ana yemektir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="kategori" id="corba">
+        <h2>Çorbalar</h2>
+        <div class="yemek-grid">
+
+          <!-- Ezogelin Çorbası -->
+          <div class="yemek corba hafif klasik traditional" data-name="ezogelin çorbası">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/EzogelinÇorbası.jpeg" alt="Ezogelin Çorbası">
+            <div class="yemek-info">
+              <h3>Ezogelin Çorbası</h3>
+              <p>Mercimek, bulgur ve baharatla hazırlanan yöresel çorba.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>30₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mercimek Çorbası -->
+          <div class="yemek corba hafif klasik traditional" data-name="mercimek çorbası">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/MercimekÇorbası.jpg" alt="Mercimek Çorbası">
+            <div class="yemek-info">
+              <h3>Mercimek Çorbası</h3>
+              <p>Kırmızı mercimekle yapılan sade ve doyurucu bir çorba.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>28₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alaca Çorba -->
+          <div class="yemek corba yöresel klasik traditional" data-name="alaca çorba">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/AlacaÇorba.jpg" alt="Alaca Çorba">
+            <div class="yemek-info">
+              <h3>Alaca Çorba</h3>
+              <p>Yarma, nohut ve mercimekle yapılan yöresel lezzet.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>35₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Şiveydiz -->
+          <div class="yemek corba yöresel klasik traditional" data-name="şiveydiz">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Şiveydiz.jpg" alt="Şiveydiz">
+            <div class="yemek-info">
+              <h3>Şiveydiz</h3>
+              <p>Taze sarımsak ve yoğurtla yapılan geleneksel Gaziantep çorbası.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lebeniye -->
+          <div class="yemek corba yoğurtlu klasik traditional" data-name="lebeniye">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Lebeniye.jpg" alt="Lebeniye">
+            <div class="yemek-info">
+              <h3>Lebeniye</h3>
+              <p>Köfteli ve yoğurtlu, ferahlatıcı yöresel bir çorba.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>40₺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="kategori" id="tatli">
+        <h2>Tatlılar</h2>
+        <div class="yemek-grid">
+          <!-- Kare Baklava -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="kare baklava">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/KareBaklava.jpg" alt="Kare Baklava">
+            <div class="yemek-info">
+              <h3>Kare Baklava</h3>
+              <p>Kat kat yufka arasında fıstık ve bol şerbetle yapılan geleneksel tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>55₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Midye Baklava -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="midye baklava">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/MidyeBaklava.jpg" alt="Midye Baklava">
+            <div class="yemek-info">
+              <h3>Midye Baklava</h3>
+              <p>Midye şeklinde kıvrılmış, bol fıstıklı ve şerbetli nefis bir tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>58₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Şöbiyet Baklava -->
+          <div class="yemek tatli sütlü klasik traditional" data-name="şöbiyet baklava">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/ŞöbiyetBaklava.jpg" alt="Şöbiyet Baklava">
+            <div class="yemek-info">
+              <h3>Şöbiyet Baklava</h3>
+              <p>İçinde kaymak olan, fıstıklı ve şerbetli özel bir tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fıstık Sarma -->
+          <div class="yemek tatli özel klasik traditional" data-name="fıstık sarma">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/FıstıkSarma.jpeg" alt="Fıstık Sarma">
+            <div class="yemek-info">
+              <h3>Fıstık Sarma</h3>
+              <p>Yoğun Antep fıstığıyla sarılmış özel bir tatlı lezzeti.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>70₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soğuk Baklava -->
+          <div class="yemek tatli sütlü modern" data-name="soğuk baklava">
+            <div class="yemek-badge">Modern</div>
+            <img src="images/SoğukBaklava.jpg" alt="Soğuk Baklava">
+            <div class="yemek-info">
+              <h3>Soğuk Baklava</h3>
+              <p>Çikolata ve süt ile hazırlanan hafif ve modern bir baklava çeşidi.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>65₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kadayıf -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="kadayıf">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Kadayıf.jpeg" alt="Kadayıf">
+            <div class="yemek-info">
+              <h3>Kadayıf</h3>
+              <p>Tel tel kadayıf ile hazırlanmış, şerbetli geleneksel tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kaymaklı Kadayıf -->
+          <div class="yemek tatli sütlü klasik traditional" data-name="kaymaklı kadayıf">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/KaymaklıKadayıf.jpeg" alt="Kaymaklı Kadayıf">
+            <div class="yemek-info">
+              <h3>Kaymaklı Kadayıf</h3>
+              <p>İçi kaymak dolu, üstü çıtır kadayıfla kaplı lezzetli bir tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>55₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bohça Kadayıf -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="bohça kadayıf">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/BohçaKadayıf.jpg" alt="Bohça Kadayıf">
+            <div class="yemek-info">
+              <h3>Bohça Kadayıf</h3>
+              <p>İçinde ceviz veya fıstık bulunan bohça şeklinde kadayıf tatlısı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>50₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hasır Kadayıf -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="hasır kadayıf">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/HasırKadayıf.jpg" alt="Hasır Kadayıf">
+            <div class="yemek-info">
+              <h3>Hasır Kadayıf</h3>
+              <p>Özel dokumasıyla hasır gibi görünen eşsiz bir kadayıf tatlısı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>52₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Billuriye -->
+          <div class="yemek tatli özel klasik traditional" data-name="billuriye">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Billuriye.jpg" alt="Billuriye">
+            <div class="yemek-info">
+              <h3>Billuriye</h3>
+              <p>İncecik tel kadayıf ve bol fıstıkla hazırlanmış zarif bir tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antep Kahkesi -->
+          <div class="yemek tatli kurabiye yöresel" data-name="antep kahkesi">
+            <div class="yemek-badge">Yöresel</div>
+            <img src="images/AntepKahkesi.jpg" alt="Antep Kahkesi">
+            <div class="yemek-info">
+              <h3>Antep Kahkesi</h3>
+              <p>Susamlı ve baharatlı geleneksel Antep kurabiyesi.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>35₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antep Kurabiyesi -->
+          <div class="yemek tatli kurabiye yöresel" data-name="antep kurabiyesi">
+            <div class="yemek-badge">Yöresel</div>
+            <img src="images/AntepKurabiyesi.jpeg" alt="Antep Kurabiyesi">
+            <div class="yemek-info">
+              <h3>Antep Kurabiyesi</h3>
+              <p>Fıstık veya cevizle yapılan sade ama lezzetli bir kurabiye.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>30₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Şam Tatlısı -->
+          <div class="yemek tatli şerbetli klasik traditional" data-name="şam tatlısı">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/ŞamTatlısı.jpeg" alt="Şam Tatlısı">
+            <div class="yemek-info">
+              <h3>Şam Tatlısı</h3>
+              <p>Irmik ve şerbetle hazırlanan, üstü fıstıklı geleneksel tatlı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>40₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Katmer -->
+          <div class="yemek tatli özel klasik traditional" data-name="katmer">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/Katmer.jpg" alt="Katmer">
+            <div class="yemek-info">
+              <h3>Katmer</h3>
+              <p>İncecik hamur, kaymak ve fıstıkla yapılan sabah tatlısı.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek tatli özel klasik traditional" data-name="katmer">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/AntepBohça.jpg" alt="Antep Bohça">
+            <div class="yemek-info">
+              <h3>Antep Bohça</h3>
+              <p>Antep Bohça, incecik yufkanın içine Antep fıstığı, ceviz veya peynir gibi farklı iç harçları konularak
+                bohça şeklinde katlanıp kızartılan veya fırınlanan, yöresel bir lezzettir.</p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yemek tatli özel klasik traditional" data-name="katmer">
+            <div class="yemek-badge">Klasik</div>
+            <img src="images/SütlüNuriye.jpg" alt="Sütlü Nuriye Tatlısı">
+            <div class="yemek-info">
+              <h3>Sütlü Nuriye Tatlısı</h3>
+              <p>Sütlü Nuriye Tatlısı, sütlü şerbetle ıslatılmış, fındıklı veya bademli, hafif bir baklava çeşididir.
+              </p>
+              <div class="yemek-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <script src="yemekler.js"></script>
+</body>
+
+</html>

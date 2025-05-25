@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Antep'te Adım Adım</title>
+  <link rel="stylesheet" href="yerler.css">
+</head>
+
+<body>
+
+  <div class="topMenu">
+    <img class="logo" src="amblem.png" alt="Gaziantep Logosu">
+    <p class="slogan">“Efsaneleri, kahramanları ve yüzyıllara uzanan lezzet mirasıyla Antep’i tanıyın.”</p>
+    <button class="btn" onclick="window.location.href='main.html'">Ana Sayfa</button>
+    <button class="btn" onclick="window.location.href='yemekler.html'">Antep Softası</button>
+    <button class="btn" onclick="window.location.href='tarihi.html'">Antep: Yaşayan Miras</button>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <!-- Arama Kutusu -->
+      <div class="filter-section">
+        <h3>🔍 Arama</h3>
+        <input type="text" class="search-box" id="searchBox" placeholder="Mekan adı ara..." onkeyup="filtrele()">
+      </div>
+
+      <!-- Kategori Filtresi -->
+      <div class="filter-section">
+        <h3>🏛️ Kategoriler</h3>
+        <label><input type="checkbox" value="islami" onchange="filtrele()">🏰 İslami Yerler</label>
+        <label><input type="checkbox" value="tarihi" onchange="filtrele()">🎭 Tarihi ve Kültürel Yerler</label>
+        <label><input type="checkbox" value="dogal" onchange="filtrele()">🌿 Doğal Güzellikler</label>
+        <label><input type="checkbox" value="eglence" onchange="filtrele()">🎢 Eğlence Yerleri</label>
+      </div>
+
+      <!-- Fiyat Aralığı -->
+      <div class="filter-section">
+        <h3>💰 Giriş Ücreti</h3>
+        <label><input type="radio" name="fiyat" value="ucretsiz" onchange="filtrele()">💚 Ücretsiz</label>
+        <label><input type="radio" name="fiyat" value="ekonomik" onchange="filtrele()">💛 Ekonomik (0-50₺)</label>
+        <label><input type="radio" name="fiyat" value="orta" onchange="filtrele()">🧡 Standart (50-150₺)</label>
+        <label><input type="radio" name="fiyat" value="premium" onchange="filtrele()">❤️ Pahalı (150₺+)</label>
+      </div>
+
+      <!-- Özel Durumlar -->
+      <div class="filter-section">
+        <h3>🏷️ Sebeb-i Ziyaret</h3>
+        <label><input type="checkbox" value="muze" onchange="filtrele()">🏛️ Müze</label>
+        <label><input type="checkbox" value="restoran" onchange="filtrele()">🍽️ Restoran</label>
+        <label><input type="checkbox" value="antik" onchange="filtrele()">🏺 Antik</label>
+        <label><input type="checkbox" value="alisveris" onchange="filtrele()">🛍️ Alışveriş</label>
+      </div>
+
+      <!-- Popülerlik -->
+      <div class="filter-section">
+        <h3>⭐ Popülerlik</h3>
+        <label><input type="checkbox" value="populer" onchange="filtrele()">🗺️ Turistik Yerler</label>
+        <label><input type="checkbox" value="gizli" onchange="filtrele()">🌊 Sakin ve Huzurlu</label>
+        <label><input type="checkbox" value="instagram" onchange="filtrele()">🧗 Macera</label>
+        <label><input type="checkbox" value="yerel" onchange="filtrele()">📸 Fotojenik</label>
+      </div>
+
+      
+
+      <button class="clear-filters" onclick="temizleFiltreler()">🔄 Filtreleri Temizle</button>
+    </div>
+
+    <div class="content">
+      <div class="results-info" id="resultsInfo">
+        Toplam <span id="resultCount">28</span> yerler gösteriliyor
+      </div>
+
+      <div class="kategori" id="ana">
+        <h2>İslami Yerler</h2>
+        <div class="yerler-grid">
+          <!-- Ana yerlerler -->
+          <div class="yerler ana orta klasik traditional" data-name="lahmacun">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Yerler/UluCami.jpg" alt="Lahmacun">
+            <div class="yerler-info">
+              <h3>Lahmacun</h3>
+              <p>İncecik hamurun üstüne serilen baharatlı kıymayla fırınlanmış lezzet.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>40₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="patlıcan kebabı">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/PatlıcanKebabı.jpg" alt="Patlıcan Kebabı">
+            <div class="yerler-info">
+              <h3>Patlıcan Kebabı</h3>
+              <p>Patlıcanların arasına dizilmiş kıyma etiyle eşsiz bir kebab.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>85₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="soğan kebabı">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/SoğanKebabı.jpeg" alt="Soğan Kebabı">
+            <div class="yerler-info">
+              <h3>Soğan Kebabı</h3>
+              <p>Küçük soğanlarla birlikte pişen baharatlı kıyma kebabı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>90₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="kelle paça">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/KellePaça.jpg" alt="Kelle Paça">
+            <div class="yerler-info">
+              <h3>Kelle Paça</h3>
+              <p>Baş ve ayak etinden yapılan, şifa kaynağı bir çorba.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>75₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="ali nazik">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Alinazik.jpg" alt="Ali Nazik">
+            <div class="yerler-info">
+              <h3>Ali Nazik</h3>
+              <p>Közlenmiş patlıcan ve yoğurt karışımı üstüne kuşbaşı et.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>95₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="içli köfte">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/İçliKöfte.jpg" alt="İçli Köfte">
+            <div class="yerler-info">
+              <h3>İçli Köfte</h3>
+              <p>Dışı ince bulgur, içi baharatlı kıyma dolu nefis bir lezzet.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="nohut dürümü">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/NohutDürümü.jpg" alt="Nohut Dürümü">
+            <div class="yerler-info">
+              <h3>Nohut Dürümü</h3>
+              <p>Baharatlı nohutların lavaş arasında buluştuğu sokak lezzeti.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>35₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="antep kömbe">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/AntepKömbe.jpg" alt="Antep Kömbe">
+            <div class="yerler-info">
+              <h3>Antep Kömbe</h3>
+              <p>Geleneksel baharatlı hamur işi, taş fırında pişirilmiş.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler ana orta klasik traditional" data-name="beyran">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Beyran.jpeg" alt="Beyran">
+            <div class="yerler-info">
+              <h3>Beyran</h3>
+              <p>Pirinç, et ve sarımsağın kaynar et suyunda birleştiği sabah çorbası.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>70₺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kategori" id="tarihi">
+        <h2>Tarihi ve Kültürel Güzellikler</h2>
+        <div class="yerler-grid">
+
+          <div class="yerler tarihi ucretsiz populer antik" data-name="antep kalesi">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Yerler/AntepKalesi.jpg" alt="Antep Kalesi">
+            <div class="yerler-info">
+              <h3>Antep Kalesi</h3>
+              <p>Gaziantep'in merkezinde yer alan ve tarihi Roma dönemine kadar uzanan bir kaledir. Günümüzde müze
+                olarak kullanılmaktadır.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ekonomik populer muze" data-name="zeugma mozaik müzesi">
+            <div class="yerler-badge">Mozaik</div>
+            <img src="images/Yerler/ZeugmaMozaikMüzesi.jpg" alt="Zeugma Mozaik Müzesi">
+            <div class="yerler-info">
+              <h3>Zeugma Mozaik Müzesi</h3>
+              <p>Dünyaca ünlü mozaikleriyle tanınan müze, antik Zeugma kentinden çıkarılan eserleri sergiler.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ücretsiz gizli antik" data-name="zeugma antik kenti">
+            <div class="yerler-badge">Antik</div>
+            <img src="images/Yerler/ZeugmaAntikKenti.jpg" alt="Zeugma Antik Kenti">
+            <div class="yerler-info">
+              <h3>Zeugma Antik Kenti</h3>
+              <p>Fırat Nehri kıyısında yer alan antik kent, mozaikleri ve tarihi kalıntıları ile dikkat çeker.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler dogal ücretsiz gizli antik" data-name="yesemek açık hava müzesi">
+            <div class="yerler-badge">Açık Hava</div>
+            <img src="images/Yerler/YesemekAçık.jpg" alt="Yesemek Açık Hava Müzesi">
+            <div class="yerler-info">
+              <h3>Yesemek Açık Hava Müzesi</h3>
+              <p>Antik taş ocağı ve heykel atölyesi olan Yesemek, doğayla iç içe tarih sunar.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler dogal ücretsiz gizli antik" data-name="rumkale">
+            <div class="yerler-badge">Manzara</div>
+            <img src="images/Yerler/Rumkale.jpg" alt="Rumkale">
+            <div class="yerler-info">
+              <h3>Rumkale</h3>
+              <p>Fırat Nehri'nin ortasında yer alan tarihi kale, muhteşem bir doğa ve tarih manzarası sunar.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ücretsiz populer muze" data-name="gaziantep savaş müzesi">
+            <div class="yerler-badge">Milli Mücadele</div>
+            <img src="images/Yerler/SavaşMüzesi.jpg" alt="Gaziantep Savaş Müzesi">
+            <div class="yerler-info">
+              <h3>Gaziantep Savaş Müzesi</h3>
+              <p>Gaziantep savunmasının kahramanlık hikayesini anlatan etkileyici bir müzedir.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ekonomik gizli hamam" data-name="naib hamamı">
+            <div class="yerler-badge">Hamam</div>
+            <img src="images/Yerler/NaibHamamı.jpg" alt="Naib Hamamı">
+            <div class="yerler-info">
+              <h3>Naib Hamamı</h3>
+              <p>Osmanlı döneminden kalma tarihi bir hamam. Günümüzde kültürel amaçlarla kullanılmaktadır.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ücretsiz populer alısverıs" data-name="bakırcılar çarşısı">
+            <div class="yerler-badge">El Sanatları</div>
+            <img src="images/Yerler/BakırcılarÇarşısı.jpg" alt="Bakırcılar Çarşısı">
+            <div class="yerler-info">
+              <h3>Bakırcılar Çarşısı</h3>
+              <p>El yapımı bakır ürünlerin satıldığı otantik bir çarşıdır. Turistik açıdan da çok popülerdir.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ücretsiz gizli alısverıs" data-name="almacı pazarı">
+            <div class="yerler-badge">Pazar</div>
+            <img src="images/Yerler/AlmacıPazarı.jpg" alt="Almacı Pazarı">
+            <div class="yerler-info">
+              <h3>Almacı Pazarı</h3>
+              <p>Yöresel ürünlerin satıldığı tarihi pazar yeri. Gaziantep kültürünü yansıtır.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ücretsiz gizli alısverıs" data-name="bedesten çarşısı">
+            <div class="yerler-badge">Tarihi</div>
+            <img src="images/Yerler/ZincirliBedesten.jpg" alt="Bedesten Çarşısı">
+            <div class="yerler-info">
+              <h3>Bedesten Çarşısı</h3>
+              <p>Yüzyıllardır ticaretin kalbi olan tarihi bir kapalı çarşıdır.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ücretsiz gizli alısverıs" data-name="gümrük hanı">
+            <div class="yerler-badge">Han</div>
+            <img src="images/Yerler/GümrükHanı.jpg" alt="Gümrük Hanı">
+            <div class="yerler-info">
+              <h3>Gümrük Hanı</h3>
+              <p>Gaziantep’in en eski hanlarından biridir. Günümüzde kafe ve dükkânlara ev sahipliği yapar.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ücretsiz populer restoran" data-name="tahmis kahvehanesi">
+            <div class="yerler-badge">Kahve</div>
+            <img src="images/Yerler/TahmisKahvehanesi.jpg" alt="Tahmis Kahvehanesi">
+            <div class="yerler-info">
+              <h3>Tahmis Kahvehanesi</h3>
+              <p>1635'ten bu yana hizmet veren tarihi kahvehanede menengiç kahvesi içebilirsiniz.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ekonomik populer restoran" data-name="koçak baklava">
+            <div class="yerler-badge">Tatlı</div>
+            <img src="images/Yerler/KoçakBaklava.jpg" alt="Koçak Baklava">
+            <div class="yerler-info">
+              <h3>Koçak Baklava</h3>
+              <p>Gaziantep’in meşhur baklavacısı. Yerli ve yabancı turistlerin uğrak noktası.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ekonomik gizli muze" data-name="bayazhan">
+            <div class="yerler-badge">Han</div>
+            <img src="images/Yerler/Bayazhan.jpg" alt="Bayazhan">
+            <div class="yerler-info">
+              <h3>Bayazhan</h3>
+              <p>Tarihi bir han içerisinde yer alan müze ve kültür merkezi.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ücretsiz gizli muze" data-name="gaziantep oyun ve oyuncak müzesi">
+            <div class="yerler-badge">Oyuncak</div>
+            <img src="images/Yerler/OyuncakMüzesi.jpg" alt="Gaziantep Oyun ve Oyuncak Müzesi">
+            <div class="yerler-info">
+              <h3>Gaziantep Oyun ve Oyuncak Müzesi</h3>
+              <p>Dünyanın farklı yerlerinden oyuncakların sergilendiği keyifli bir müze.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler tarihi ücretsiz gizli muze" data-name="gaziantep hamam müzesi">
+            <div class="yerler-badge">Hamam</div>
+            <img src="images/Yerler/HamamMüzesi.jpg" alt="Gaziantep Hamam Müzesi">
+            <div class="yerler-info">
+              <h3>Gaziantep Hamam Müzesi</h3>
+              <p>Hamam kültürünü tanıtan tematik müze, tarihi bir hamam binasında yer alır.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="yerler kultur ücretsiz gizli muze" data-name="gaziantep mutfak müzesi">
+            <div class="yerler-badge">Yemek Kültürü</div>
+            <img src="images/Yerler/MutfakMüzesi.jpg" alt="Gaziantep Mutfak Müzesi">
+            <div class="yerler-info">
+              <h3>Gaziantep Mutfak Müzesi</h3>
+              <p>Gaziantep’in zengin yemek kültürünü anlatan özel bir müzedir.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kategori" id="tatli">
+        <h2>Doğal Güzellikler</h2>
+        <div class="yerler-grid">
+          <!-- Kare Baklava -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="kare baklava">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/KareBaklava.jpg" alt="Kare Baklava">
+            <div class="yerler-info">
+              <h3>Kare Baklava</h3>
+              <p>Kat kat yufka arasında fıstık ve bol şerbetle yapılan geleneksel tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>55₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Midye Baklava -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="midye baklava">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/MidyeBaklava.jpg" alt="Midye Baklava">
+            <div class="yerler-info">
+              <h3>Midye Baklava</h3>
+              <p>Midye şeklinde kıvrılmış, bol fıstıklı ve şerbetli nefis bir tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>58₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Şöbiyet Baklava -->
+          <div class="yerler tatli sütlü klasik traditional" data-name="şöbiyet baklava">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/ŞöbiyetBaklava.jpg" alt="Şöbiyet Baklava">
+            <div class="yerler-info">
+              <h3>Şöbiyet Baklava</h3>
+              <p>İçinde kaymak olan, fıstıklı ve şerbetli özel bir tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fıstık Sarma -->
+          <div class="yerler tatli özel klasik traditional" data-name="fıstık sarma">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/FıstıkSarma.jpeg" alt="Fıstık Sarma">
+            <div class="yerler-info">
+              <h3>Fıstık Sarma</h3>
+              <p>Yoğun Antep fıstığıyla sarılmış özel bir tatlı lezzeti.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>70₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soğuk Baklava -->
+          <div class="yerler tatli sütlü modern" data-name="soğuk baklava">
+            <div class="yerler-badge">Modern</div>
+            <img src="images/SoğukBaklava.jpg" alt="Soğuk Baklava">
+            <div class="yerler-info">
+              <h3>Soğuk Baklava</h3>
+              <p>Çikolata ve süt ile hazırlanan hafif ve modern bir baklava çeşidi.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>65₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kadayıf -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="kadayıf">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Kadayıf.jpeg" alt="Kadayıf">
+            <div class="yerler-info">
+              <h3>Kadayıf</h3>
+              <p>Tel tel kadayıf ile hazırlanmış, şerbetli geleneksel tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>45₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kaymaklı Kadayıf -->
+          <div class="yerler tatli sütlü klasik traditional" data-name="kaymaklı kadayıf">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/KaymaklıKadayıf.jpeg" alt="Kaymaklı Kadayıf">
+            <div class="yerler-info">
+              <h3>Kaymaklı Kadayıf</h3>
+              <p>İçi kaymak dolu, üstü çıtır kadayıfla kaplı lezzetli bir tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>55₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bohça Kadayıf -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="bohça kadayıf">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/BohçaKadayıf.jpg" alt="Bohça Kadayıf">
+            <div class="yerler-info">
+              <h3>Bohça Kadayıf</h3>
+              <p>İçinde ceviz veya fıstık bulunan bohça şeklinde kadayıf tatlısı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>50₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hasır Kadayıf -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="hasır kadayıf">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/HasırKadayıf.jpg" alt="Hasır Kadayıf">
+            <div class="yerler-info">
+              <h3>Hasır Kadayıf</h3>
+              <p>Özel dokumasıyla hasır gibi görünen eşsiz bir kadayıf tatlısı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐</span>
+                <span>52₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Billuriye -->
+          <div class="yerler tatli özel klasik traditional" data-name="billuriye">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Billuriye.jpg" alt="Billuriye">
+            <div class="yerler-info">
+              <h3>Billuriye</h3>
+              <p>İncecik tel kadayıf ve bol fıstıkla hazırlanmış zarif bir tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>60₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antep Kahkesi -->
+          <div class="yerler tatli kurabiye yöresel" data-name="antep kahkesi">
+            <div class="yerler-badge">Yöresel</div>
+            <img src="images/AntepKahkesi.jpg" alt="Antep Kahkesi">
+            <div class="yerler-info">
+              <h3>Antep Kahkesi</h3>
+              <p>Susamlı ve baharatlı geleneksel Antep kurabiyesi.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>35₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antep Kurabiyesi -->
+          <div class="yerler tatli kurabiye yöresel" data-name="antep kurabiyesi">
+            <div class="yerler-badge">Yöresel</div>
+            <img src="images/AntepKurabiyesi.jpeg" alt="Antep Kurabiyesi">
+            <div class="yerler-info">
+              <h3>Antep Kurabiyesi</h3>
+              <p>Fıstık veya cevizle yapılan sade ama lezzetli bir kurabiye.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>30₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Şam Tatlısı -->
+          <div class="yerler tatli şerbetli klasik traditional" data-name="şam tatlısı">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/ŞamTatlısı.jpeg" alt="Şam Tatlısı">
+            <div class="yerler-info">
+              <h3>Şam Tatlısı</h3>
+              <p>Irmik ve şerbetle hazırlanan, üstü fıstıklı geleneksel tatlı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐</span>
+                <span>40₺</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Katmer -->
+          <div class="yerler tatli özel klasik traditional" data-name="katmer">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Katmer.jpg" alt="Katmer">
+            <div class="yerler-info">
+              <h3>Katmer</h3>
+              <p>İncecik hamur, kaymak ve fıstıkla yapılan sabah tatlısı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>65₺</span>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- yerler-grid kapanışı -->
+      </div> <!-- kategori kapanışı -->
+
+      <div class="kategori" id="tatli">
+        <h2>Eğlence Yerleri</h2>
+        <div class="yerler-grid">
+
+          <div class="yerler tatli özel klasik traditional" data-name="katmer">
+            <div class="yerler-badge">Klasik</div>
+            <img src="images/Katmer.jpg" alt="Katmer">
+            <div class="yerler-info">
+              <h3>Katmer</h3>
+              <p>İncecik hamur, kaymak ve fıstıkla yapılan sabah tatlısı.</p>
+              <div class="yerler-meta">
+                <span class="rating">⭐⭐⭐⭐⭐</span>
+                <span>65₺</span>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- content kapanışı -->
+      </div> <!-- container kapanışı -->
+
+      <script src="yerler.js"></script>
+</body>
+
+</html>
