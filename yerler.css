@@ -86,7 +86,8 @@ body {
 }
 
 .filter-section label {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: 0.6rem;
   font-size: 0.9rem;
   color: #333;
@@ -94,8 +95,9 @@ body {
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
+  min-height: 32px; /* Ek: sabit yükseklik */
+  width: 100%; /* Ek: genişliği sabit tut */
+  box-sizing: border-box; /* Ek: padding genişliğe dahil */
 }
 
 .filter-section label:hover {
@@ -248,16 +250,6 @@ body {
   color: #666;
   line-height: 1.5;
   margin-bottom: 1rem;
-}
-
-.yerler-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #888;
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
 }
 
 .hidden {
