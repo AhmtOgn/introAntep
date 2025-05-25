@@ -122,6 +122,8 @@ body {
   outline: none;
 }
 
+
+
 .search-box:focus {
   border-color: #8B0000;
   box-shadow: 0 0 5px rgba(139, 0, 0, 0.2);
