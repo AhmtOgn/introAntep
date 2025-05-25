@@ -13,8 +13,8 @@ function filtrele() {
     const tumKategoriler = document.querySelectorAll('.kategori');
     let gorunurYerSayisi = 0;
 
-    // Yemekleri filtrele
-    tumYemekler.forEach(yerler => {
+    // Yerleri filtrele
+    tumYerler.forEach(yerler => {
         let goster = true;
 
         // Kategori filtresi
@@ -41,7 +41,7 @@ function filtrele() {
             yerler.classList.remove('hidden');
             gorunurYerSayisi++;
         } else {
-            yer.classList.add('hidden');
+            yerler.classList.add('hidden');
         }
     });
 
@@ -59,11 +59,11 @@ function filtrele() {
         }
     });
 
-    // Sonuç mesajını güncelle - Bu kısım düzeltildi
+    // Sonuç mesajını güncelle
     const resultsInfo = document.getElementById('resultsInfo');
     const resultCount = document.getElementById('resultCount');
 
-    if (gorunurYemekSayisi === 0) {
+    if (gorunurYerSayisi === 0) {
         resultsInfo.innerHTML = '❌ Arama kriterlerinize uygun yer bulunamadı';
         resultsInfo.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
     } else {
@@ -71,6 +71,7 @@ function filtrele() {
         resultsInfo.style.background = 'linear-gradient(135deg, #8B0000, #CD5C5C)';
     }
 }
+
 
 function temizleFiltreler() {
     // Tüm checkbox'ları temizle
