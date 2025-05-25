@@ -65,10 +65,10 @@ function filtrele() {
 
     if (gorunurYemekSayisi === 0) {
         resultsInfo.innerHTML = '❌ Arama kriterlerinize uygun yer bulunamadı';
-        resultsInfo.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+        resultsInfo.style.background = 'linear-gradient(135deg, rgb(65, 57, 57), rgb(147, 72, 15))';
     } else {
         resultsInfo.innerHTML = `✅ Toplam <span id="resultCount">${gorunurYerSayisi}</span> yer gösteriliyor`;
-        resultsInfo.style.background = 'linear-gradient(135deg, #8B0000, #CD5C5C)';
+        resultsInfo.style.background = 'linear-gradient(135deg, rgb(147, 72, 15), rgb(65, 57, 57))';
     }
 }
 

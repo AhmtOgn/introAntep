@@ -8,10 +8,10 @@ body {
 }
 
 .topMenu {
-  height: 120px;
+  height: 90px;
   width: 100%;
 
-  background-image: linear-gradient(to left, rgb(79, 34, 34), rgb(32, 3, 3));
+  background-image: linear-gradient(to left, rgb(14, 13, 13), rgb(147, 72, 15));
   background-size: cover;
   color: white;
   padding: 1rem;
@@ -23,15 +23,15 @@ body {
 
 
 .logo {
-  height: 100px;
+  height: 70px;
   margin-right: auto;
-  margin-left: 20px;
+  margin-left: 50px;
 
 
 }
 
 .btn {
-  font-size: 18px;
+  font-size: 12px;
   padding: 12px 24px;
   border-radius: 25px;
   color: white;
@@ -41,12 +41,19 @@ body {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   cursor: pointer;
-  margin-right: 20px;
+  margin-right: 10px;
+}
+
+.slogan {
+  margin-right: 90px;
+  margin-top: 12px;
+  font-style: italic;
+
 }
 
 .btn:hover {
   background: rgba(255, 255, 255, 0.9);
-  color: #8B0000;
+  color: rgb(147, 72, 15);
   transform: translateY(-2px);
 }
 

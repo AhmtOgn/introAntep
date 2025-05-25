@@ -1,157 +1,191 @@
-
-
-    body {
-      background-color: #f9f6f1;
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-      line-height: 1.6;
-      color: #222;
-    }
-     body{
-  background-image: url('images/arkaplan1.png'); /*arka plan Gaziantep*/
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-  background-position: center; 
-  opacity: 0.95; 
+body {
+  background-color: #f9f6f1;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #222;
 }
+
+body {
+  /*arka plan Gaziantep*/
+  background-image: url('images/arkaplan1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 0.95;
+}
+
 .section-content {
-  background-color: rgba(255, 255, 255, 0.85); 
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
 }
 
 
+.topMenu {
+  height: 90px;
+  width: 100%;
 
-    .header {
-      background-color: #ffffff;
-      color: rgb(5, 5, 5);
-      padding: 20px;
-      position: relative;
-      text-align: center;
-    }
+  background-image: linear-gradient(to left, rgb(14, 13, 13), rgb(147, 72, 15));
+  background-size: cover;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+.btn {
+  font-size: 12px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  margin-right: 10px;
+}
 
-    .logo {
-      position: absolute;
-      left: 40px;
-      top: 30px;
-      height: 65px;
-    }
+.slogan {
+  margin-right: 90px;
+  margin-top: 12px;
+  font-style: italic;
 
-    .section-nav {
-      background-color: #e5e0e0;
-      padding: 20px 40px;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+}
 
-    .section-nav .nav-button {
-      position: relative;
-      background-color: white;
-      border: 2px solid #bb6b26;
-      border-radius: 8px;
-      color: #000;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 10px 15px;
-      transition: all 0.3s ease;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    }
+.btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #8B0000;
+  transform: translateY(-2px);
+}
+.logo {
+  height: 70px;
+  margin-right: auto;
+  margin-left: 50px;
 
-    .section-nav .nav-button:hover {
-      background-color: #f1f1f1;
-      transform: translateY(-2px);
-      box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
-    }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
 
-    .section h2 {
-      margin-bottom: 20px;
-      font-weight: bold;
-      font-size: 28px;
-      color: #8b0000;
-      text-align: center;
-    }
+}
 
-    .story-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin-bottom: 40px;
-      gap: 20px;
-      animation: fadeIn 1s ease-in-out;
-    }
+.section-nav {
+  background-color: #e5e0e0;
+  padding: 20px 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    .story-image {
-      flex: 1 1 300px;
-      max-width: 300px;
-      transition: transform 0.3s ease;
-    }
+.section-nav .nav-button {
+  position: relative;
+  background-color: white;
+  border: 2px solid #bb6b26;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
 
-    .story-image:hover {
-      transform: scale(1.05);
-    }
+.section-nav .nav-button:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    .story-text {
-      flex: 2;
-      font-size: 16px;
-    }
+.section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    .story-image img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+.section h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 28px;
+  color: #8b0000;
+  text-align: center;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.story-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  gap: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
 
-    @media (max-width: 768px) {
-      .logo {
-        position: static;
-        display: block;
-        margin: auto;
-      }
+.story-image {
+  flex: 1 1 300px;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
 
-      .section-nav {
-        flex-direction: column;
-        align-items: center;
-      }
+.story-image:hover {
+  transform: scale(1.05);
+}
 
-      .story-row {
-        flex-direction: column;
-      }
+.story-text {
+  flex: 2;
+  font-size: 16px;
+}
 
-      .story-image {
-        max-width: 100%;
-        margin-right: 0;
-      }
+.story-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-      .section {
-        padding: 20px 10px;
-      }
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    .section-nav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: static;
+    display: block;
+    margin: auto;
+  }
+
+  .section-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-row {
+    flex-direction: column;
+  }
+
+  .story-image {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .section {
+    padding: 20px 10px;
+  }
+}
+
+.section-nav {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #f0e9e1; 
+  background-color: #f0e9e1;
   padding: 10px 0;
   display: flex;
   justify-content: center;
@@ -172,7 +206,7 @@
 
 
 
-    /* Yerel Sözcükler ve Ağız bölümü için CSS */
+/* Yerel Sözcükler ve Ağız bölümü için CSS */
 .local-dialect-section {
   max-width: 900px;
   margin: auto;
@@ -237,6 +271,7 @@
   padding-left: 20px;
   color: #444;
 }
+
 /* Gaziantep Yerel Ağız - Fonetik ve Morfolojik Özellikler */
 .agiz-ozellikleri-section {
   background-color: #fff4eb;
@@ -278,6 +313,7 @@
   color: #a0522d;
   font-style: italic;
 }
+
 /* Yerel Sözcükler ve Ağız bölümü için CSS */
 .local-dialect-section {
   background-color: #fff4eb;
@@ -331,6 +367,7 @@
   font-size: 15px;
   padding-left: 15px;
 }
+
 /* Geleneksel Yaşam ve Kültür CSS */
 .culture-section {
   background-color: #fff7f0;
@@ -364,8 +401,10 @@
   background-color: #fff;
   border-radius: 12px;
   transition: background 0.3s;
-  width: auto;  /* ya da %100 */
-  margin-left: -30px;  /* istediğin kadar artırabilirsin */
+  width: auto;
+  /* ya da %100 */
+  margin-left: -30px;
+  /* istediğin kadar artırabilirsin */
   margin-right: -30px;
   padding-left: 50px;
   padding-right: 50px;
@@ -425,9 +464,9 @@
   transition: background 0.3s;
   margin-left: -30px;
   margin-right: -30px;
-  padding-left: 50px;   
+  padding-left: 50px;
   padding-right: 50px;
-  width: auto;          
+  width: auto;
   box-sizing: border-box;
 }
 
@@ -473,9 +512,10 @@
 .belief-images img {
   width: calc(50% - 10px);
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
+
 .belief-block {
   margin-bottom: 35px;
   padding: 20px;
@@ -509,13 +549,14 @@
   padding: 12px;
   background-color: #fffaf5;
   border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .belief-item img {
   width: 220px;
   height: auto;
-  object-fit: contain; /* or cover */
+  object-fit: contain;
+  /* or cover */
   border-radius: 8px;
   flex-shrink: 0;
 }
@@ -539,8 +580,8 @@
   }
 }
 
- .mutfak-section {
-  
+.mutfak-section {
+
   padding: 30px;
   border-radius: 16px;
   font-family: 'Segoe UI', sans-serif;
@@ -575,11 +616,12 @@
   transition: background 0.3s;
   margin-left: -30px;
   margin-right: -30px;
-  padding-left: 50px;   
+  padding-left: 50px;
   padding-right: 50px;
-  width: auto;          
+  width: auto;
   box-sizing: border-box;
 }
+
 .mutfak-block:hover {
   background-color: #fff4ec !important;
   box-shadow: 0 6px 16px rgba(204, 88, 0, 0.2) !important;
@@ -636,12 +678,13 @@
     max-width: 320px;
     margin-bottom: 20px;
   }
-  
+
 }
+
 .el-sanatlari-section {
   padding: 30px;
   border-radius: 16px;
-  
+
   font-family: 'Segoe UI', sans-serif;
   margin: 40px auto;
   max-width: 1000px;
@@ -673,11 +716,12 @@
   transition: background 0.3s;
   margin-left: -30px;
   margin-right: -30px;
-  padding-left: 50px;   
+  padding-left: 50px;
   padding-right: 50px;
-  width: auto;          
+  width: auto;
   box-sizing: border-box;
 }
+
 .el-sanatlari-block:hover {
   background-color: #fff4ec !important;
   box-shadow: 0 6px 16px rgba(204, 88, 0, 0.2) !important;
@@ -731,9 +775,10 @@
     max-width: 320px;
     margin-bottom: 20px;
   }
-  
+
 
 }
+
 .savunma-section {
   padding: 30px;
   border-radius: 16px;
@@ -768,11 +813,11 @@
   transition: background 0.3s;
   margin-left: -5px;
   margin-right: -5px;
-  padding-left: 50px;   
+  padding-left: 50px;
   padding-right: 50px;
-  width: auto;          
+  width: auto;
   box-sizing: border-box;
-  
+
 }
 
 
@@ -785,7 +830,8 @@
 }
 
 .savunma-block img {
-   width: 350px;;
+  width: 350px;
+  ;
   height: 250px;
   border-radius: 12px;
   object-fit: cover;
@@ -830,7 +876,3 @@
     margin-bottom: 20px;
   }
 }
-
-
-
- 
