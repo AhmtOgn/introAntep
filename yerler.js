@@ -9,50 +9,50 @@ function filtrele() {
     // Arama terimi
     const aramaTerimi = document.getElementById('searchBox').value.toLowerCase();
 
-    const tumYemekler = document.querySelectorAll('.yemek');
+    const tumYerler = document.querySelectorAll('.yerler');
     const tumKategoriler = document.querySelectorAll('.kategori');
-    let gorunurYemekSayisi = 0;
+    let gorunurYerSayisi = 0;
 
     // Yemekleri filtrele
-    tumYemekler.forEach(yemek => {
+    tumYemekler.forEach(yerler => {
         let goster = true;
 
         // Kategori filtresi
         if (secilenKategoriler.length > 0) {
-            const kategoriEslesti = secilenKategoriler.some(kat => yemek.classList.contains(kat));
+            const kategoriEslesti = secilenKategoriler.some(kat => yerler.classList.contains(kat));
             if (!kategoriEslesti) goster = false;
         }
 
         // Fiyat filtresi
-        if (secilenFiyat && !yemek.classList.contains(secilenFiyat)) {
+        if (secilenFiyat && !yerler.classList.contains(secilenFiyat)) {
             goster = false;
         }
 
         // Arama filtresi
         if (aramaTerimi) {
-            const yemekAdi = yemek.getAttribute('data-name')?.toLowerCase() || '';
-            const yemekBaslik = yemek.querySelector('h3')?.textContent.toLowerCase() || '';
-            if (!yemekAdi.includes(aramaTerimi) && !yemekBaslik.includes(aramaTerimi)) {
+            const yerAdi = yerler.getAttribute('data-name')?.toLowerCase() || '';
+            const yerBaslik = yerler.querySelector('h3')?.textContent.toLowerCase() || '';
+            if (!yerAdi.includes(aramaTerimi) && !yerBaslik.includes(aramaTerimi)) {
                 goster = false;
             }
         }
 
         if (goster) {
-            yemek.classList.remove('hidden');
-            gorunurYemekSayisi++;
+            yerler.classList.remove('hidden');
+            gorunurYerSayisi++;
         } else {
-            yemek.classList.add('hidden');
+            yer.classList.add('hidden');
         }
     });
 
     // Kategorileri kontrol et
     tumKategoriler.forEach(kategori => {
-        const kategoriYemekleri = kategori.querySelectorAll('.yemek');
-        const gorunurYemekVar = Array.from(kategoriYemekleri).some(yemek =>
-            !yemek.classList.contains('hidden')
+        const kategoriYerleri = kategori.querySelectorAll('.yerler');
+        const gorunurYerVar = Array.from(kategoriYerleri).some(yerler =>
+            !yerler.classList.contains('hidden')
         );
 
-        if (gorunurYemekVar) {
+        if (gorunurYerVar) {
             kategori.classList.remove('hidden');
         } else {
             kategori.classList.add('hidden');
@@ -64,10 +64,10 @@ function filtrele() {
     const resultCount = document.getElementById('resultCount');
 
     if (gorunurYemekSayisi === 0) {
-        resultsInfo.innerHTML = '❌ Arama kriterlerinize uygun yemek bulunamadı';
+        resultsInfo.innerHTML = '❌ Arama kriterlerinize uygun yer bulunamadı';
         resultsInfo.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
     } else {
-        resultsInfo.innerHTML = `✅ Toplam <span id="resultCount">${gorunurYemekSayisi}</span> yemek gösteriliyor`;
+        resultsInfo.innerHTML = `✅ Toplam <span id="resultCount">${gorunurYerSayisi}</span> yer gösteriliyor`;
         resultsInfo.style.background = 'linear-gradient(135deg, #8B0000, #CD5C5C)';
     }
 }
