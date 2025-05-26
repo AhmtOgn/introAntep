@@ -21,3 +21,7 @@ temp/
 
 # Node.js varsa
 node_modules/
+
+# Pdf
+.pdf
+*.pdf
