@@ -56,12 +56,13 @@ body {
 }
 
 .container {
-  display: flex;
-  background-color: #fafafa;
+  display: grid;
+  grid-template-columns: 450px auto;
+  background-color: #fafafa;
 }
 
 .sidebar {
-  width: 380px;
+  width: 280px;
   background: transparent;
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
@@ -278,8 +279,10 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: 450px auto;
+  background-color: #fafafa;
+}
 
   .sidebar {
     width: 100%;
